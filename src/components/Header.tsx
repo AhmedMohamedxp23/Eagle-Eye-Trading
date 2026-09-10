@@ -3,49 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { NAV_PAGES } from "@/lib/data";
-import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = menuRef.current;
-    if (!el) return;
-
-    if (prefersReducedMotion()) {
-      el.style.display = open ? "flex" : "none";
-      return;
-    }
-
-    if (open) {
-      gsap.set(el, { display: "flex", height: 0, opacity: 0 });
-      void el.offsetHeight; // force reflow so GSAP measures real layout, not display:none
-      console.log("DEBUG opening, natural scrollHeight=", el.scrollHeight);
-      const tween = gsap.to(el, {
-        height: "auto",
-        opacity: 1,
-        duration: 0.35,
-        ease: "power2.out",
-        onUpdate: () => console.log("DEBUG tween height=", el.style.height, "progress=", tween?.progress?.()),
-        onComplete: () => console.log("DEBUG open complete, final height=", getComputedStyle(el).height),
-      });
-    } else {
-      gsap.to(el, {
-        height: 0,
-        opacity: 0,
-        duration: 0.28,
-        ease: "power2.in",
-        onComplete: () => {
-          el.style.display = "none";
-        },
-      });
-    }
-  }, [open]);
 
   return (
     <header className={styles.wrap}>
@@ -95,9 +59,9 @@ export default function Header() {
       </div>
 
       <nav
-        ref={menuRef}
-        className={styles.mobileMenu}
+        className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
         aria-label="Mobile"
+        aria-hidden={!open}
       >
         {NAV_PAGES.map((p) => {
           const active = pathname === p.href;

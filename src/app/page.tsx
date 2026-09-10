@@ -5,6 +5,7 @@ import HeroCanvas from "@/components/HeroCanvas";
 import CountUpStat from "@/components/CountUpStat";
 import CapabilityDomains from "@/components/CapabilityDomains";
 import Reveal from "@/components/Reveal";
+import CTABand from "@/components/CTABand";
 import { SERVICES, PARTNERS, CLIENTS } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -158,6 +159,8 @@ export default function Home() {
           ))}
         </Reveal>
       </section>
+
+      <CTABand title="Ready to scope your next project?" />
 
       <Footer />
     </>

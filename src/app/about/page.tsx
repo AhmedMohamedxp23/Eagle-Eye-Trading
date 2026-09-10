@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionHero from "@/components/SectionHero";
 import Reveal from "@/components/Reveal";
+import CTABand from "@/components/CTABand";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -96,6 +97,8 @@ export default function AboutPage() {
           </p>
         </div>
       </Reveal>
+
+      <CTABand title="Let's talk about your next project." />
 
       <Footer />
     </>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionHero from "@/components/SectionHero";
+import CTABand from "@/components/CTABand";
 import { FAMILIES, getProducts, type FamilyId } from "@/lib/data";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./page.module.css";
@@ -79,6 +80,8 @@ export default function ProductsClient() {
           ))}
         </div>
       </div>
+
+      <CTABand title="Have a specification? We'll price it." />
 
       <Footer />
     </>

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SectionHero from "@/components/SectionHero";
 import Reveal from "@/components/Reveal";
+import CTABand from "@/components/CTABand";
 import { SERVICES } from "@/lib/data";
 import styles from "./page.module.css";
 
@@ -45,19 +45,7 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <div className={styles.cta}>
-        <div>
-          <div className={styles.ctaTitle}>
-            Have a specification? We&apos;ll price it.
-          </div>
-          <div className={styles.ctaSub}>
-            QUALIFIED RFQs ANSWERED WITHIN TWO BUSINESS DAYS
-          </div>
-        </div>
-        <Link href="/rfq" className={styles.ctaBtn}>
-          Request an Offer →
-        </Link>
-      </div>
+      <CTABand title="Have a specification? We'll price it." />
 
       <Footer />
     </>
