@@ -1,0 +1,418 @@
+.hero {
+  position: relative;
+  padding: 52px 40px 44px;
+  background: var(--ee-ink);
+  overflow: hidden;
+}
+
+.rule {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--ee-gold), rgba(244, 195, 0, 0));
+}
+
+.kicker {
+  font: 500 11px var(--font-plex-mono), monospace;
+  color: var(--ee-gold);
+  letter-spacing: 0.16em;
+  margin-bottom: 20px;
+}
+
+.title {
+  margin: 0;
+  max-width: 700px;
+  font: 700 44px/1.06 var(--font-archivo), sans-serif;
+  color: #fff;
+  letter-spacing: -0.035em;
+}
+
+.steps {
+  display: flex;
+  background: var(--ee-ink-2);
+  flex-wrap: wrap;
+}
+
+.step {
+  flex: 1;
+  min-width: 140px;
+  padding: 18px 26px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stepsProgress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.stepsProgressFill {
+  height: 100%;
+  width: 0%;
+  background: var(--ee-gold);
+}
+
+.stepNum {
+  font: 500 10.5px var(--font-plex-mono), monospace;
+  letter-spacing: 0.14em;
+}
+
+.stepLabel {
+  font: 600 15px var(--font-archivo), sans-serif;
+  margin-top: 6px;
+}
+
+.panel {
+  padding: 44px 40px 36px;
+  background: #fff;
+}
+
+.panelTitle {
+  margin: 0;
+  font: 700 28px var(--font-archivo), sans-serif;
+  color: var(--ee-ink);
+  letter-spacing: -0.025em;
+}
+
+.panelSub {
+  margin: 8px 0 28px;
+  font: 400 13.5px/1.6 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+.panelSub strong {
+  color: var(--ee-ink);
+  font-weight: 600;
+}
+
+/* Step 1: scopes */
+.scopeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.scopeCard {
+  cursor: pointer;
+  text-align: left;
+  padding: 20px 18px;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+  border: 1px solid var(--ee-line);
+  background: #fff;
+}
+.scopeCard:hover {
+  border-color: var(--ee-ink);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(28, 34, 38, 0.1);
+}
+.scopeCard:focus-visible {
+  outline: 2px solid var(--ee-gold);
+  outline-offset: 2px;
+}
+.scopeCardActive {
+  border-color: var(--ee-ink);
+  background: #fdf8e6;
+}
+
+.scopeHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.scopeTitle {
+  font: 600 15.5px var(--font-archivo), sans-serif;
+  color: var(--ee-ink);
+}
+
+.scopeMark {
+  font: 500 10.5px var(--font-plex-mono), monospace;
+  color: var(--ee-link);
+  letter-spacing: 0.12em;
+}
+
+.scopeHint {
+  margin: 8px 0 0;
+  font: 400 12.5px/1.6 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+/* Step 2: project details */
+.fieldGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.label {
+  font: 500 10.5px var(--font-plex-mono), monospace;
+  color: var(--ee-muted);
+  letter-spacing: 0.12em;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--ee-line-2);
+  padding: 14px 15px;
+  font: 400 14px var(--font-plex-sans), sans-serif;
+  color: var(--ee-ink);
+  background: #fff;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--ee-ink);
+}
+.input::placeholder {
+  color: #9a948a;
+}
+
+.pillRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  cursor: pointer;
+  border: 1px solid var(--ee-line-2);
+  background: none;
+  color: var(--ee-body);
+  padding: 11px 14px;
+  font: 500 12.5px var(--font-plex-sans), sans-serif;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.pill:hover {
+  border-color: var(--ee-ink);
+}
+.pillActive {
+  border-color: var(--ee-ink);
+  background: var(--ee-ink);
+  color: #fff;
+}
+
+.dropzone {
+  display: block;
+  cursor: pointer;
+  border: 1px dashed #b9b3a9;
+  background: #faf9f6;
+  padding: 28px;
+  text-align: center;
+  font: 400 12.5px var(--font-plex-mono), monospace;
+  color: #63696e;
+  letter-spacing: 0.06em;
+  transition: border-color 0.2s, background 0.2s;
+}
+.dropzone:hover {
+  border-color: var(--ee-ink);
+}
+.dropzoneFiles {
+  margin-top: 10px;
+  font: 400 12px var(--font-plex-sans), sans-serif;
+  color: var(--ee-ink);
+  letter-spacing: 0;
+}
+
+/* Step 3: review */
+.summary {
+  border: 1px solid var(--ee-line);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--ee-line);
+}
+.summaryRow:last-child {
+  border-bottom: none;
+}
+
+.summaryLabel {
+  font: 500 11px var(--font-plex-mono), monospace;
+  color: var(--ee-muted);
+  letter-spacing: 0.12em;
+  flex: none;
+}
+
+.summaryValue {
+  font: 500 13.5px var(--font-plex-sans), sans-serif;
+  color: var(--ee-ink);
+  text-align: right;
+}
+
+.note {
+  margin-top: 20px;
+  background: var(--ee-cream);
+  border-left: 3px solid var(--ee-gold);
+  padding: 16px 18px;
+  font: 400 13px/1.65 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+.error {
+  margin: 0 0 18px;
+  font: 400 12.5px var(--font-plex-sans), sans-serif;
+  color: #a12a2a;
+}
+
+/* Footer nav */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 40px;
+  background: var(--ee-cream);
+  border-top: 1px solid var(--ee-line);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.backBtn {
+  cursor: pointer;
+  font: 600 12.5px var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+  border: 1px solid #cdc8c0;
+  background: none;
+  padding: 14px 22px;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
+}
+.backBtn:hover:not(:disabled) {
+  border-color: var(--ee-ink);
+  color: var(--ee-ink);
+}
+.backBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress {
+  font: 400 11.5px var(--font-plex-mono), monospace;
+  color: var(--ee-muted);
+  letter-spacing: 0.06em;
+}
+
+.nextBtn {
+  cursor: pointer;
+  font: 600 12.5px var(--font-plex-sans), sans-serif;
+  background: var(--ee-gold);
+  color: var(--ee-ink);
+  padding: 14px 24px;
+  letter-spacing: 0.03em;
+  border: none;
+  transition:
+    background 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.nextBtn:hover:not(:disabled) {
+  background: var(--ee-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(244, 195, 0, 0.34);
+}
+.nextBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.nextBtn:focus-visible {
+  outline: 2px solid var(--ee-ink);
+  outline-offset: 3px;
+}
+
+/* Confirmation */
+.confirm {
+  padding: 60px 40px;
+  background: #fff;
+  text-align: center;
+}
+
+.confirmInner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.confirmKicker {
+  font: 500 10.5px var(--font-plex-mono), monospace;
+  color: var(--ee-link);
+  letter-spacing: 0.16em;
+  margin-bottom: 14px;
+}
+
+.confirmTitle {
+  margin: 0 0 12px;
+  font: 700 30px var(--font-archivo), sans-serif;
+  color: var(--ee-ink);
+  letter-spacing: -0.025em;
+}
+
+.confirmBody {
+  margin: 0;
+  font: 400 15px/1.7 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+.confirmReset {
+  display: inline-block;
+  margin-top: 26px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: 500 11.5px var(--font-plex-mono), monospace;
+  color: var(--ee-link);
+  letter-spacing: 0.06em;
+}
+.confirmReset:hover {
+  color: var(--ee-ink);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 40px 24px 32px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  .step {
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .panel {
+    padding: 32px 24px 28px;
+  }
+  .scopeGrid {
+    grid-template-columns: 1fr;
+  }
+  .fieldGrid {
+    grid-template-columns: 1fr;
+  }
+  .nav {
+    padding: 20px 24px;
+  }
+  .confirm {
+    padding: 48px 24px;
+  }
+}

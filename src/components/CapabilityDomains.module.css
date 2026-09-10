@@ -1,0 +1,118 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  cursor: pointer;
+  font: 500 11px var(--font-plex-mono), monospace;
+  letter-spacing: 0.1em;
+  padding: 11px 16px;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    color 0.25s,
+    transform 0.25s;
+  color: var(--ee-body);
+  background: #fff;
+  border: 1px solid var(--ee-line);
+}
+.tab:hover {
+  border-color: var(--ee-gold);
+  transform: translateY(-2px);
+}
+.tab:focus-visible {
+  outline: 2px solid var(--ee-gold);
+  outline-offset: 2px;
+}
+.tabActive {
+  color: var(--ee-ink);
+  background: var(--ee-gold);
+  border-color: var(--ee-gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.title {
+  margin: 0;
+  font: 700 38px/1.08 var(--font-archivo), sans-serif;
+  color: var(--ee-ink);
+  letter-spacing: -0.03em;
+}
+
+.intro {
+  margin: 16px 0 0;
+  font: 400 15.5px/1.75 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+.items {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.item {
+  border-top: 1px solid var(--ee-line);
+  padding-top: 15px;
+}
+
+.itemTitle {
+  font: 600 15px var(--font-archivo), sans-serif;
+  color: var(--ee-ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.itemBody {
+  margin: 0;
+  font: 400 13px/1.7 var(--font-plex-sans), sans-serif;
+  color: var(--ee-body);
+}
+
+.images {
+  display: grid;
+  gap: 14px;
+}
+
+.imgBig,
+.imgSmall {
+  background-color: #eceae5;
+  background-position: center;
+  background-size: cover;
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.5s;
+}
+.imgBig,
+.imgSmall {
+  height: 280px;
+}
+.imgBig:hover,
+.imgSmall:hover {
+  transform: perspective(1200px) rotateY(-5deg) rotateX(2deg) translateZ(24px);
+  box-shadow: -18px 18px 40px rgba(28, 34, 38, 0.28);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imgBig,
+  .imgSmall {
+    height: 220px;
+  }
+}

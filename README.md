@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Eagle Eye Trading Est. — Website
 
-## Getting Started
+Marketing site for Eagle Eye Trading Est., a systems integrator (electrical,
+ICT, security and fire/life-safety) based in Riyadh, Kingdom of Saudi Arabia.
+Built with Next.js 16 (App Router) and TypeScript.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                  Route segments (App Router). Each page has its own
+                         page.tsx + page.module.css. Pages with interactive
+                         state (Products, Contact, RFQ) split into a thin
+                         server page.tsx (metadata) + a "*Client.tsx" component.
+  components/            Shared UI: Header, Footer, SectionHero, CapabilityDomains,
+                         HeroCanvas (animated hero graphic), CountUpStat.
+  lib/data.ts             All site content/copy — services, product families,
+                         partners, clients, RFQ scopes — as typed data.
+public/
+  assets/                 Photography, logos, partner/client logos, product images.
+  og-image.jpg            Social share preview image.
+```
 
-## Learn More
+## Content & data
 
-To learn more about Next.js, take a look at the following resources:
+Nearly all copy (services, product families, partner/client logos, RFQ scope
+options) lives in [`src/lib/data.ts`](src/lib/data.ts) rather than being
+hardcoded in components — update text, add a partner logo, or add a product
+by editing that file rather than the page components.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev      # start the dev server (Turbopack)
+npm run build    # production build
+npm run start    # run the production build locally
+npm run lint     # ESLint
+```
 
-## Deploy on Vercel
+## SEO
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Per-page `<title>`/description via each route's `metadata` export (templated
+  as "`Page` | Eagle Eye Trading Est.").
+- Open Graph / Twitter card image at `public/og-image.jpg`.
+- `robots.ts` and `sitemap.ts` generate `/robots.txt` and `/sitemap.xml`.
+- Organization structured data (JSON-LD) in the root layout.
+- `metadataBase` and canonical URLs assume the production domain
+  `https://www.eagleeye-est.com` — update `SITE_URL` in `layout.tsx`,
+  `robots.ts` and `sitemap.ts` if the real domain differs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- Forms (Contact, RFQ) send email via [Resend](https://resend.com) —
+  see `src/lib/email.ts` and `src/app/api/{contact,rfq}/route.ts`.
+  Configure via `.env.local` (copy `.env.example`): `RESEND_API_KEY`,
+  `RESEND_FROM_EMAIL`, `CONTACT_TO_EMAIL`. Submissions deliver to
+  `sales@eagleeye-est.com`. RFQ file uploads (PDF/DWG/XLSX, 15MB combined cap)
+  are attached to the email for real. Sender is still Resend's shared
+  `onboarding@resend.dev` sandbox address — verify the `eagleeye-est.com`
+  domain in Resend to send from a branded address and improve deliverability
+  (attachment emails have been landing in spam from the sandbox domain).
