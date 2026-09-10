@@ -23,7 +23,7 @@ const plexMono = IBM_Plex_Mono({
 const SITE_URL = "https://www.eagleeye-est.com";
 const SITE_NAME = "Eagle Eye Trading Est.";
 const SITE_TITLE =
-  "Eagle Eye Trading Est. — Systems Integration, Kingdom of Saudi Arabia";
+  "Eagle Eye Trading Est.";
 const SITE_DESCRIPTION =
   "Electrical, IT, security and life-safety systems — consulted, designed, installed, commissioned and maintained as one accountable 360° scope.";
 
