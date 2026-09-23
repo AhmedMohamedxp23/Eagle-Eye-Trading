@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "Our Services",
   description:
     "Six service lines, one accountable contractor — consultation, design & engineering, installation, system integration, testing & commissioning, and operation & maintenance.",
+  alternates: {
+    canonical: "/services",
+    languages: { en: "/services" }, // ar: "/ar/services" — disabled at client's request
+  },
 };
 
 export default function ServicesPage() {

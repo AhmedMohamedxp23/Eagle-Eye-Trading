@@ -86,7 +86,7 @@
   background-position: center;
 }
 .mvvCol + .mvvCol {
-  border-left: 1px solid rgba(255, 255, 255, 0.28);
+  border-inline-start: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .mvvHeading {
@@ -94,6 +94,9 @@
   color: #ffffff;
   letter-spacing: 0.16em;
   margin-bottom: 14px;
+}
+[dir="rtl"] .mvvHeading {
+  font: 700 22px var(--font-cairo), sans-serif;
 }
 
 .mvvBody {
@@ -118,7 +121,7 @@
     grid-template-columns: 1fr;
   }
   .mvvCol + .mvvCol {
-    border-left: none;
+    border-inline-start: none;
     border-top: 1px solid rgba(255, 255, 255, 0.28);
   }
 }

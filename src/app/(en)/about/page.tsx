@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Eagle Eye Est is a premier provider of electrical, IT, security and safety systems solutions, with an in-Kingdom engineering team and 26+ technology partners.",
+  alternates: {
+    canonical: "/about",
+    languages: { en: "/about" }, // ar: "/ar/about" — disabled at client's request
+  },
 };
 
 const STATS = [

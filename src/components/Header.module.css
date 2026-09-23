@@ -21,12 +21,24 @@
 .logoLink {
   display: block;
   flex: none;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.logoLink:hover {
+  transform: scale(1.05);
+}
+.logoLink:focus-visible {
+  outline: 2px solid var(--ee-gold);
+  outline-offset: 4px;
 }
 
 .logo {
-  height: 40px;
+  height: 46px;
   display: block;
   width: auto;
+  transition: filter 0.3s;
+}
+.logoLink:hover .logo {
+  filter: drop-shadow(0 0 10px rgba(244, 195, 0, 0.35));
 }
 
 .navGroup {
@@ -66,6 +78,62 @@
   border-bottom-color: var(--ee-gold);
 }
 
+.langToggle {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  flex: none;
+  width: 54px;
+  height: 25px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.25s;
+}
+.langToggle:hover {
+  border-color: rgba(244, 195, 0, 0.6);
+}
+.langToggle:focus-visible {
+  outline: 2px solid var(--ee-gold);
+  outline-offset: 2px;
+}
+
+.langThumb {
+  position: absolute;
+  top: 2px;
+  inset-inline-start: 2px;
+  width: 24px;
+  height: 19px;
+  border-radius: 999px;
+  background: var(--ee-gold);
+  box-shadow: 0 2px 6px rgba(244, 195, 0, 0.35);
+  transition: inset-inline-start 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.langToggleAr .langThumb {
+  inset-inline-start: 28px;
+}
+
+.langLabel {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  text-align: center;
+  font: 700 9px var(--font-plex-mono), monospace;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s;
+  pointer-events: none;
+}
+.langLabelActive {
+  color: var(--ee-ink);
+}
+
+.langToggleMobile {
+  align-self: flex-start;
+  margin: 16px 24px;
+}
+
 .cta {
   cursor: pointer;
   font: 600 11.5px var(--font-plex-sans), sans-serif;
@@ -73,7 +141,7 @@
   background: var(--ee-gold);
   padding: 12px 18px;
   letter-spacing: 0.04em;
-  margin-left: 14px;
+  margin-inline-start: 14px;
   border: none;
   transition:
     background 0.25s,
@@ -127,7 +195,7 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  text-align: left;
+  text-align: start;
 }
 .mobileLinkActive {
   color: var(--ee-gold);

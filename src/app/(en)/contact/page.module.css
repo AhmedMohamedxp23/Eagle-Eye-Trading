@@ -247,7 +247,7 @@
 }
 
 .confirm {
-  border-left: 3px solid var(--ee-gold);
+  border-inline-start: 3px solid var(--ee-gold);
   background: #fff;
   padding: 26px 24px;
 }

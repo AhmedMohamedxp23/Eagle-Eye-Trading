@@ -212,7 +212,7 @@ export default function HeroCanvas() {
       style={{
         position: "absolute",
         top: 0,
-        right: 0,
+        insetInlineEnd: 0,
         width: "620px",
         maxWidth: "60%",
         height: "100%",

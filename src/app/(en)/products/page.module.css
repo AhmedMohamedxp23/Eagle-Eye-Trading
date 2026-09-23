@@ -7,21 +7,39 @@
 
 .tab {
   cursor: pointer;
-  font: 500 10.5px var(--font-plex-mono), monospace;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font: 600 10.5px var(--font-plex-mono), monospace;
   letter-spacing: 0.12em;
-  padding: 10px 15px;
+  padding: 12px 17px;
   transition:
     background 0.25s,
     border-color 0.25s,
     color 0.25s,
-    transform 0.25s;
+    transform 0.25s,
+    box-shadow 0.25s;
   color: #fff;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.tab::after {
+  content: "→";
+  font-size: 11px;
+  line-height: 1;
+  color: var(--ee-gold);
+  opacity: 0.65;
+  transition: transform 0.25s, opacity 0.25s;
 }
 .tab:hover {
   border-color: var(--ee-gold);
+  background: rgba(244, 195, 0, 0.14);
   transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+}
+.tab:hover::after {
+  opacity: 1;
+  transform: translateX(3px);
 }
 .tab:focus-visible {
   outline: 2px solid var(--ee-gold);
@@ -31,6 +49,16 @@
   color: var(--ee-ink);
   background: var(--ee-gold);
   border-color: var(--ee-gold);
+  box-shadow: 0 8px 20px rgba(244, 195, 0, 0.32);
+}
+.tabActive::after {
+  content: "●";
+  font-size: 6px;
+  color: var(--ee-ink);
+  opacity: 0.6;
+}
+.tabActive:hover::after {
+  transform: none;
 }
 
 .body {

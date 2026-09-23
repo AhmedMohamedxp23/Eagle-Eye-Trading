@@ -5,9 +5,15 @@ import { DOMAINS } from "@/lib/data";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./CapabilityDomains.module.css";
 
-export default function CapabilityDomains() {
+type Domain = (typeof DOMAINS)[number];
+
+export default function CapabilityDomains({
+  domains = DOMAINS,
+}: {
+  domains?: Domain[];
+}) {
   const [active, setActive] = useState(0);
-  const domain = DOMAINS[active];
+  const domain = domains[active];
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -23,7 +29,7 @@ export default function CapabilityDomains() {
   return (
     <div>
       <div className={styles.tabs} role="tablist">
-        {DOMAINS.map((d, i) => (
+        {domains.map((d, i) => (
           <button
             key={d.label}
             role="tab"

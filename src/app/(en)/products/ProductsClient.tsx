@@ -6,13 +6,41 @@ import Footer from "@/components/Footer";
 import SectionHero from "@/components/SectionHero";
 import CTABand from "@/components/CTABand";
 import { FAMILIES, getProducts, type FamilyId } from "@/lib/data";
+import { FAMILIES_AR, getProductsAr } from "@/lib/data.ar";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./page.module.css";
 
-export default function ProductsClient() {
-  const [family, setFamily] = useState<FamilyId>("security");
-  const fam = FAMILIES.find((f) => f.id === family) ?? FAMILIES[0];
-  const products = getProducts(family);
+type Locale = "en" | "ar";
+
+const COPY = {
+  en: {
+    kicker: "OUR PRODUCTS",
+    title: "A complete range of electrical and security solutions.",
+    lede: "Including — but not limited to — lighting fixtures, power panels and cables, across five product families.",
+    systems: "SYSTEMS",
+    ctaTitle: "Have a specification? We'll price it.",
+    ctaSub: "QUALIFIED RFQs ANSWERED WITHIN TWO BUSINESS DAYS",
+    ctaLabel: "Request an Offer →",
+    rfqHref: "/rfq",
+  },
+  ar: {
+    kicker: "منتجاتنا",
+    title: "مجموعة متكاملة من الحلول الكهربائية والأمنية.",
+    lede: "بما يشمل — دون حصر — تجهيزات الإنارة ولوحات الطاقة والكابلات، عبر خمس فئات من المنتجات.",
+    systems: "نظامًا",
+    ctaTitle: "لديك مواصفات جاهزة؟ سنقدّم لك السعر.",
+    ctaSub: "نُجيب على طلبات عروض الأسعار المؤهلة خلال يومَي عمل",
+    ctaLabel: "اطلب عرض سعر ←",
+    rfqHref: "/ar/rfq",
+  },
+};
+
+export default function ProductsClient({ locale = "en" }: { locale?: Locale }) {
+  const families = locale === "ar" ? FAMILIES_AR : FAMILIES;
+  const t = COPY[locale];
+  const [family, setFamily] = useState<FamilyId>("fas");
+  const fam = families.find((f) => f.id === family) ?? families[0];
+  const products = locale === "ar" ? getProductsAr(family) : getProducts(family);
   const bodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,15 +55,10 @@ export default function ProductsClient() {
 
   return (
     <>
-      <Header />
-      <SectionHero
-        kicker="OUR PRODUCTS"
-        title="A complete range of electrical and security solutions."
-        lede="Including — but not limited to — lighting fixtures, power panels and cables, across five product families."
-        image="products-hero.jpg"
-      >
+      <Header locale={locale} />
+      <SectionHero kicker={t.kicker} title={t.title} lede={t.lede} image="products-hero.jpg">
         <div className={styles.tabs} role="tablist">
-          {FAMILIES.map((f) => (
+          {families.map((f) => (
             <button
               key={f.id}
               role="tab"
@@ -54,7 +77,7 @@ export default function ProductsClient() {
           <h2 className={styles.title}>{fam.title}</h2>
           <span className={styles.rule} />
           <span className={styles.count}>
-            {String(products.length).padStart(2, "0")} SYSTEMS
+            {String(products.length).padStart(2, "0")} {t.systems}
           </span>
         </div>
         <p className={styles.intro}>{fam.intro}</p>
@@ -81,9 +104,14 @@ export default function ProductsClient() {
         </div>
       </div>
 
-      <CTABand title="Have a specification? We'll price it." />
+      <CTABand
+        title={t.ctaTitle}
+        sub={t.ctaSub}
+        label={t.ctaLabel}
+        href={t.rfqHref}
+      />
 
-      <Footer />
+      <Footer locale={locale} />
     </>
   );
 }

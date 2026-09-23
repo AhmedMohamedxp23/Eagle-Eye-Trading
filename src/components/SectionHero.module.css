@@ -30,10 +30,20 @@
     rgba(15, 18, 20, 0.32) 100%
   );
 }
+[dir="rtl"] .gradient {
+  /* mirrored so the dark side still sits behind the text, which is now
+     right-aligned */
+  background: linear-gradient(
+    260deg,
+    rgba(15, 18, 20, 0.92) 0%,
+    rgba(15, 18, 20, 0.72) 45%,
+    rgba(15, 18, 20, 0.32) 100%
+  );
+}
 
 .rule {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   bottom: 0;
   width: 3px;

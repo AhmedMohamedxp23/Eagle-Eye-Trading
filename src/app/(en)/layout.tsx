@@ -1,31 +1,12 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import "./globals.css";
-
-const archivo = Archivo({
-  variable: "--font-archivo",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
+import { fontVariables } from "@/lib/fonts";
+import "../globals.css";
 
 const SITE_URL = "https://www.eagleeye-est.com";
 const SITE_NAME = "Eagle Eye Trading Est.";
-const SITE_TITLE =
-  "Eagle Eye Trading Est.";
+const SITE_TITLE = "Eagle Eye Trading Est.";
 const SITE_DESCRIPTION =
   "Electrical, IT, security and life-safety systems — consulted, designed, installed, commissioned and maintained as one accountable 360° scope.";
 
@@ -49,6 +30,11 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME }],
   alternates: {
     canonical: "/",
+    // Arabic locale disabled at client's request (kept for future re-enable).
+    // languages: {
+    //   en: "/",
+    //   ar: "/ar",
+    // },
   },
   openGraph: {
     type: "website",
@@ -62,7 +48,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Eagle Eye Trading Est. — Riyadh skyline",
+        alt: "Eagle Eye Trading Est. — Logo",
       },
     ],
   },
@@ -113,10 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}
-    >
+    <html lang="en" dir="ltr" className={fontVariables}>
       <body>
         <script
           type="application/ld+json"

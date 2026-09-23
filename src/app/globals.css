@@ -29,6 +29,19 @@ body {
   font-family: var(--font-plex-sans), system-ui, sans-serif;
 }
 
+/* Arabic pages: swap the Latin faces for their Arabic-script counterparts
+   everywhere `var(--font-archivo)` etc. is used, without touching every
+   component's CSS. Also neutralise Latin letter-spacing, which breaks
+   Arabic letter joining. */
+html[dir="rtl"] {
+  --font-archivo: var(--font-cairo);
+  --font-plex-sans: var(--font-plex-sans-arabic);
+  --font-plex-mono: var(--font-plex-sans-arabic);
+}
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
 a {
   color: var(--ee-link);
   text-decoration: none;

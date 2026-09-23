@@ -168,6 +168,12 @@ export const FAMILIES: {
   intro: string;
 }[] = [
   {
+    id: "fas",
+    label: "FIRE ALARM SYSTEM",
+    title: "Fire Alarm Systems",
+    intro: "Detection, notification and extinguishing — built for assurance.",
+  },
+  {
     id: "security",
     label: "SECURITY",
     title: "Security",
@@ -184,12 +190,6 @@ export const FAMILIES: {
     label: "AI",
     title: "Artificial Intelligence",
     intro: "Machine intelligence applied to the systems we already deliver.",
-  },
-  {
-    id: "fas",
-    label: "FIRE ALARM SYSTEM",
-    title: "Fire Alarm Systems",
-    intro: "Detection, notification and extinguishing — built for assurance.",
   },
   {
     id: "lighting",

@@ -7,7 +7,7 @@
 
 .rule {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   bottom: 0;
   width: 3px;
@@ -39,7 +39,7 @@
   flex: 1;
   min-width: 140px;
   padding: 18px 26px;
-  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .stepsProgress {
@@ -94,7 +94,7 @@
 
 .scopeCard {
   cursor: pointer;
-  text-align: left;
+  text-align: start;
   padding: 20px 18px;
   transition:
     border-color 0.25s,
@@ -252,13 +252,13 @@
 .summaryValue {
   font: 500 13.5px var(--font-plex-sans), sans-serif;
   color: var(--ee-ink);
-  text-align: right;
+  text-align: end;
 }
 
 .note {
   margin-top: 20px;
   background: var(--ee-cream);
-  border-left: 3px solid var(--ee-gold);
+  border-inline-start: 3px solid var(--ee-gold);
   padding: 16px 18px;
   font: 400 13px/1.65 var(--font-plex-sans), sans-serif;
   color: var(--ee-body);
@@ -397,7 +397,7 @@
   }
   .step {
     min-width: 100%;
-    border-right: none;
+    border-inline-end: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
   .panel {
