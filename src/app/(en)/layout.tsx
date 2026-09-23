@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     //   ar: "/ar",
     // },
   },
+  verification: {
+    google: "RnsWwd4tUqr-Ix2qz6IIuLd6gmB8hE4ChBm8uirduT4",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
