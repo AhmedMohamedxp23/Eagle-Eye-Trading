@@ -39,6 +39,22 @@ export const metadata: Metadata = {
   verification: {
     google: "RnsWwd4tUqr-Ix2qz6IIuLd6gmB8hE4ChBm8uirduT4",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      {
+        url: "/icon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

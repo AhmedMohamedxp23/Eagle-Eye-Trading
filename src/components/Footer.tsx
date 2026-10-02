@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "./Logo";
 import styles from "./Footer.module.css";
 
 type Locale = "en" | "ar";
@@ -44,13 +44,9 @@ export default function Footer({ locale = "en" }: { locale?: Locale }) {
     <footer>
       <div className={styles.top}>
         <div>
-          <Image
-            src="/assets/eagle-eye-logo-reversed-tight.png"
-            alt="Eagle Eye Trading Est."
-            width={195}
-            height={44}
-            className={styles.logo}
-          />
+          <div className={styles.logo}>
+            <Logo variant="footer" />
+          </div>
           <p className={styles.blurb}>{t.blurb}</p>
         </div>
         <div>

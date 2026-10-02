@@ -1,0 +1,81 @@
+.logo {
+  --logo-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-size: var(--logo-size);
+  line-height: 1;
+  color: #fff;
+}
+.header {
+  --logo-size: 20px;
+}
+.footer {
+  --logo-size: 22px;
+}
+
+.mark {
+  display: block;
+  flex: none;
+  width: auto;
+  height: 2.5em;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1),
+    filter 0.35s;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.name {
+  font: 800 1em/1 var(--font-archivo), sans-serif;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.accent {
+  color: var(--ee-gold);
+  transition: color 0.3s;
+}
+
+.ar {
+  font: 700 0.95em/1.2 var(--font-cairo), sans-serif;
+  letter-spacing: normal;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.logo:hover .mark {
+  transform: translate(2px, -2px) scale(1.06);
+  filter: drop-shadow(0 0 10px rgba(244, 195, 0, 0.45));
+}
+.logo:hover .accent {
+  color: #fff;
+}
+
+@media (max-width: 1180px) {
+  .header {
+    --logo-size: 17px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    --logo-size: 15.5px;
+  }
+  .footer {
+    --logo-size: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark,
+  .accent {
+    transition: none;
+  }
+}

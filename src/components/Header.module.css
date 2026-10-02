@@ -19,26 +19,12 @@
 }
 
 .logoLink {
-  display: block;
+  display: flex;
   flex: none;
-  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
-}
-.logoLink:hover {
-  transform: scale(1.05);
 }
 .logoLink:focus-visible {
   outline: 2px solid var(--ee-gold);
-  outline-offset: 4px;
-}
-
-.logo {
-  height: 46px;
-  display: block;
-  width: auto;
-  transition: filter 0.3s;
-}
-.logoLink:hover .logo {
-  filter: drop-shadow(0 0 10px rgba(244, 195, 0, 0.35));
+  outline-offset: 6px;
 }
 
 .navGroup {
@@ -204,7 +190,7 @@
   margin: 16px 24px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .bar {
     padding: 14px 20px;
   }
@@ -239,7 +225,7 @@
   }
 }
 
-@media (max-width: 900px) and (prefers-reduced-motion: reduce) {
+@media (max-width: 1000px) and (prefers-reduced-motion: reduce) {
   .mobileMenu,
   .mobileMenuOpen {
     transition: none;

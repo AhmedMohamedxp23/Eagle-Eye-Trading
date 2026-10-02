@@ -35,6 +35,22 @@ export const metadata: Metadata = {
       ar: "/ar",
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      {
+        url: "/icon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "ar_SA",

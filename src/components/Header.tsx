@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Logo from "./Logo";
 import { NAV_PAGES } from "@/lib/data";
 import { NAV_PAGES_AR } from "@/lib/data.ar";
 import styles from "./Header.module.css";
@@ -40,14 +40,7 @@ export default function Header({ locale = "en" }: { locale?: Locale }) {
           className={styles.logoLink}
           aria-label="Eagle Eye Trading Est. — Home"
         >
-          <Image
-            src="/assets/eagle-eye-logo-reversed-tight.png"
-            alt="Eagle Eye Trading Est."
-            width={203}
-            height={46}
-            className={styles.logo}
-            priority
-          />
+          <Logo variant="header" priority />
         </Link>
 
         <div className={styles.navGroup}>
