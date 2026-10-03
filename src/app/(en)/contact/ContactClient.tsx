@@ -179,7 +179,6 @@ export default function ContactClient({ locale = "en" }: { locale?: Locale }) {
                   id="name"
                   name="name"
                   className={styles.input}
-                  placeholder={t.namePlaceholder}
                 />
               </div>
               <div className={styles.fieldRow3}>
@@ -191,7 +190,6 @@ export default function ContactClient({ locale = "en" }: { locale?: Locale }) {
                     id="organisation"
                     name="organisation"
                     className={styles.input}
-                    placeholder={t.orgPlaceholder}
                   />
                 </div>
                 <div>
@@ -203,7 +201,7 @@ export default function ContactClient({ locale = "en" }: { locale?: Locale }) {
                     name="email"
                     type="email"
                     className={styles.input}
-                    placeholder={t.emailPlaceholder}
+                   
                     dir="ltr"
                   />
                 </div>
@@ -216,7 +214,6 @@ export default function ContactClient({ locale = "en" }: { locale?: Locale }) {
                     name="phone"
                     type="tel"
                     className={styles.input}
-                    placeholder={t.phonePlaceholder}
                     dir="ltr"
                   />
                 </div>
@@ -246,7 +243,6 @@ export default function ContactClient({ locale = "en" }: { locale?: Locale }) {
                   id="message"
                   name="message"
                   className={styles.textarea}
-                  placeholder={t.messagePlaceholder}
                 />
               </div>
               {error && <p className={styles.error}>{error}</p>}

@@ -9,7 +9,7 @@ const COPY = {
     blurb:
       "Emerging as the most valued integrator of electronic security, safety, fire detection and electrical fixtures in the Kingdom of Saudi Arabia.",
     contact: "CONTACT",
-    address: "P.O. Box 325934, Riyadh 11371",
+    address: "P.O. Box 380038, Riyadh 11345",
     sitemap: "SITEMAP",
     links: [
       { href: "/", label: "Home" },
