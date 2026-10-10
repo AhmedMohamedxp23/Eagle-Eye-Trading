@@ -389,7 +389,6 @@ export default function RfqClient({ locale = "en" }: { locale?: Locale }) {
                   <input
                     id="projectName"
                     className={styles.input}
-                    placeholder={t.projectNamePlaceholder}
                     value={projectName}
                     onChange={(e) => setProjectName(e.target.value)}
                   />
@@ -401,7 +400,6 @@ export default function RfqClient({ locale = "en" }: { locale?: Locale }) {
                   <input
                     id="city"
                     className={styles.input}
-                    placeholder={t.cityPlaceholder}
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                   />
@@ -414,7 +412,6 @@ export default function RfqClient({ locale = "en" }: { locale?: Locale }) {
                     id="phone"
                     type="tel"
                     className={styles.input}
-                    placeholder={t.phonePlaceholder}
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     dir="ltr"
@@ -427,7 +424,6 @@ export default function RfqClient({ locale = "en" }: { locale?: Locale }) {
                   <input
                     id="requiredOn"
                     className={styles.input}
-                    placeholder={t.requiredOnPlaceholder}
                     value={requiredOn}
                     onChange={(e) => setRequiredOn(e.target.value)}
                   />
